@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Blog - Yazı</title>
+  <style>
+    body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:#f7fafc;color:#0f1724}
+    .container{max-width:980px;margin:2rem auto;padding:0 1rem}
+    a{color:#4f46e5;text-decoration:none;font-weight:700}
+    .muted{color:#475569}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html">← Geri</a>
+    <h1 id="title">Yazı Başlığı</h1>
+    <div id="meta" class="muted" style="margin-bottom:.6rem"></div>
+    <div id="body"></div>
+  </div>
+  <script>
+    const POSTS = {
+      'post-1':{ title:'Farkındalık Haftası', meta:'12 Ekim 2025', body:'<p>Etkinlik özeti ve fotoğraflar galeriye eklendi.</p>' },
+      'post-2':{ title:'Atölye: Ses & Diksiyon', meta:'5 Eylül 2025', body:'<p>Atölye notları ve kaynaklar paylaşıldı.</p>' }
+    };
+    const id = new URLSearchParams(location.search).get('id');
+    const data = POSTS[id] || { title:'Yazı Bulunamadı', meta:'', body:'<p>İçerik bulunamadı.</p>' };
+    document.getElementById('title').innerText = data.title;
+    document.getElementById('meta').innerText = data.meta;
+    document.getElementById('body').innerHTML = data.body;
+  </script>
+</body>
+</html>

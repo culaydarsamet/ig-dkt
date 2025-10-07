@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Galeri - Görsel</title>
+  <style>
+    body{margin:0;font-family:Inter,Arial,Helvetica,sans-serif;background:#f7fafc;color:#0f1724}
+    .container{max-width:980px;margin:2rem auto;padding:0 1rem}
+    img{max-width:100%;height:auto;border-radius:8px;box-shadow:0 8px 30px rgba(2,6,23,0.06)}
+    a{color:#4f46e5;text-decoration:none;font-weight:700}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html">← Geri</a>
+    <h1 id="title">Fotoğraf</h1>
+    <img id="img" src="" alt="Etkinlik fotoğrafı">
+    <p id="meta" style="color:#475569;margin-top:.6rem"></p>
+  </div>
+  <script>
+    function qs(name){ const params=new URLSearchParams(location.search); return params.get(name); }
+    const src = qs('src');
+    const meta = qs('meta')||'';
+    if(src){ document.getElementById('img').src = decodeURIComponent(src); }
+    document.getElementById('meta').innerText = meta;
+  </script>
+</body>
+</html>
